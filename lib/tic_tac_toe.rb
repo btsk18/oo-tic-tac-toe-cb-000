@@ -71,21 +71,21 @@ class TicTacToe
   end
 
   def draw?
-    return full?(@board) && !won?(@board) ? true : false
+    return full? && !won? ? true : false
   end
 
   def over?
-    return won?(@board) || draw?(@board) || full?(@board) ? true : false
+    return won? || draw? || full? ? true : false
   end
 
   def winner
-    winning_combo = won?(@board)
+    winning_combo = won?
     return !winning_combo ? nil : @board[winning_combo.first]
   end
 
   def play
-    until over?(@board)
-      turn(@board)
+    until over?
+      turn
     end
 
     if won?
